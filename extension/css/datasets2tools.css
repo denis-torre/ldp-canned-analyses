@@ -1,0 +1,639 @@
+/*
+### Search Page
+# Toolbar
+.d2t-wrapper
+    .d2t-toolbar
+        .d2t-logo
+            .d2t-icon
+        .tool-icon-wrapper
+            .tool-icon
+            .d2t-tooltip
+                .tool-name
+                .tool-count
+                .tool-description
+
+# Tool table
+.d2t-wrapper
+    .d2t-tool-table
+        .tool-header, .description-header, .canned-analyses-header
+        .tool-cell
+            .tool-icon
+            .tool-name
+        .description-cell
+        .canned-analyses-cell
+
+# Canned Analysis Table
+.d2t-wrapper
+    .tool-annotation
+        .go-back
+        .tool-icon
+        .tool-text
+            .tool-name
+            .tool-description
+    .canned-analysis-table
+        .link-header, .title-header, .metadata-header, .share-header
+        .link-cell
+            a
+                .tool-icon
+        .title-cell
+            .canned-analysis-title
+            .d2t-tooltip
+        .metadata-cell
+            .view-metadata
+            .d2t-tooltip
+            .download-metadata
+            .d2t-tooltip
+        .share-cell
+            .share
+            .d2t-tooltip
+    .arrow-wrapper
+        .arrow-left
+        .arrow-right
+*/
+
+/* # Wrapper */
+
+.d2t-wrapper {
+}
+
+    .panel-group .d2t-wrapper {
+        padding: 10px 15px;
+    }
+
+/* # Toolbar */
+
+.d2t-toolbar {
+    display: table;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    padding-right: 7px;
+    height: 50px;
+    margin-top: 5px;
+}
+
+    .d2t-logo {
+        display: table-cell;
+        vertical-align: middle;
+        border-right: 1px solid lightgrey;
+        height: 100%;
+        padding: 0px 10px;
+    }
+
+        .d2t-icon {
+            height: 35px;
+        }
+
+    .tool-icon-wrapper {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+        .tool-icon-wrapper .tool-icon {
+            max-height: 35px;
+            padding: 1px;
+            border: 1px solid #d5d5d5;
+            margin-left: 7px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .d2t-tooltip {
+            display: none;
+        }
+
+/* Search tool annotation */
+
+.search-tool-annotation {
+    display: table;
+    border: 1px solid lightgrey;
+    border-radius: 3px 3px 0px 0px;
+    border-bottom: none;
+    width: 100%;
+    margin-top: 5px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;   
+}
+    
+    .search-tool-annotation .go-back {
+        border-right: 1px solid lightgrey;
+        display: table-cell;
+        vertical-align: middle;
+        cursor: pointer;
+        text-align:center;
+    }
+
+        .search-tool-annotation .go-back .fa {
+            font-size: 17pt;
+            padding: 0px 9px 0px 5px;
+        }
+
+    .search-tool-annotation .tool-icon {
+        max-height: 35px;
+        display: table-cell;
+        vertical-align: middle;
+        border: 1px solid #d5d5d5;
+        margin: 5px 0px 5px 7px;
+        padding: 1px;
+        border-radius: 3px;
+    }
+
+    .search-tool-annotation .tool-text {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+        .search-tool-annotation .tool-text .tool-name {
+            font-size: 10pt;
+            font-weight: 800;
+        }
+
+        .search-tool-annotation .tool-text .tool-description {
+            font-size: 9pt;
+            font-weight: 100;
+        }
+
+/* # Canned Analysis Table */
+
+.canned-analysis-table {
+    width: 100%;
+    border: 1px solid lightgrey;
+    border-radius: 0px 0px 3px 3px;
+    text-align: center;
+    margin: 0px;
+}
+
+    .canned-analysis-table td {
+        border: none;
+    }
+
+        .gse-landing-wrapper .canned-analysis-table td {
+            font-size: 8pt;
+        }
+
+    .canned-analysis-table th {
+        border: none;
+        text-align: center;
+        background-color: #EFEFEF;
+        height: 30px;
+        font-size: 11pt;
+    }
+
+        .gse-landing-wrapper .canned-analysis-table th {
+            border: none;
+            text-align: center;
+            background-color: #EFEFEF;
+            height: 30px;
+            font-size: 9pt;
+        }
+
+    .canned-analysis-table tr:not(:first-child):not(:last-child) {border-bottom: 1px solid #f7f7f7;}
+    .canned-analysis-table tr:nth-child(even) {background-color: white}
+    .canned-analysis-table tr:nth-child(odd) {background-color: #FCFCFC}
+
+    .link-header {
+        width: 50px;
+    }
+
+        .link-cell .tool-icon {
+            max-height: 25px;
+            border: 1px solid lightgrey;
+            border-radius: 3px;
+            padding: 1px;
+            margin: 7px auto 7px auto;
+        }
+
+    .title-header {
+    }
+
+        .title-cell {
+            font-size: 10pt;
+            font-weight: 100;
+            padding: 7px 10px;
+        }
+
+    .metadata-header {
+        width: 95px;
+    }
+
+        .metadata-cell .fa {
+            margin: auto 7px;
+            font-size: 15pt;
+        }
+
+    .share-header {
+        width: 60px;
+    }
+
+        .share-cell .fa {
+            font-size: 15pt;
+        }
+
+    .arrow-wrapper {
+        text-align: right;
+    }
+
+        .arrow-wrapper .fa[data-active="true"] {
+            font-size: 15pt;
+            padding: 5px 5px;
+            border: 1px solid lightgrey;
+            border-top: none;
+        }
+
+        .arrow-wrapper .fa[data-active="false"] {
+            display: none;
+        }
+
+
+
+/* Tooltips */
+
+.tooltip-wrapper {
+    padding: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    max-width: 300px;
+}
+
+.tooltip-black {
+    background-color: rgba(0,0,0,0.9);
+    color: white;
+    border-radius: 5px;
+    padding: 7px 13px;
+}        
+
+    .tooltip-black.tooltip-bottom::after {
+            content: " ";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent black transparent;
+        }
+
+        .tool-icon-tooltip {
+        }
+
+            .tool-icon-tooltip .tool-name {
+                font-size: 10pt;
+                font-weight: 500;
+            }
+
+            .tool-icon-tooltip .tool-count {
+                font-size: 8pt;
+                font-style: italic;
+                margin: 3px 0;
+                font-weight: 100;
+            }
+
+            .tool-icon-tooltip .tool-description {
+                font-size: 9pt;
+                font-weight: 100;
+            }
+
+        .canned-analysis-title-tooltip {
+            font-size: 9pt;
+        }
+
+
+    .tooltip-black.tooltip-right::after {
+            content: " ";
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent black transparent transparent;
+        }
+
+        .view-metadata-tooltip {
+            font-size: 9pt;
+        }
+
+            .view-metadata-tooltip ul {
+                padding-top: 3px;
+                padding-bottom: 3px;
+                padding-left: 20px;
+                margin: auto;
+            }
+
+                .view-metadata-tooltip ul li {
+                    overflow-wrap: break-word;
+                }
+
+                    .view-metadata-tooltip ul li .metadata-tag {
+                        font-style: italic;
+                    }
+
+        .copied-tooltip {
+            font-size: 8pt;
+        }
+
+.tooltip-white {
+    background-color: white;
+    color: black;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+    .tooltip-white.tooltip-right::after {
+            content: " ";
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent lightgrey transparent transparent;
+        }
+
+        .download-metadata-tooltip {
+            font-size: 9pt;
+            text-align: center;
+        }
+
+            .download-metadata-tooltip .button-wrapper {
+                margin: 3px auto;
+            }
+
+                .download-metadata-tooltip .button-wrapper button {
+                    align-items: stretch;
+                    background-color: #EFEFEF;
+                    background-image: linear-gradient(#fcfcfc,#eee);
+                    border: 1px solid #d5d5d5;
+                    border-radius: 3px 3px 3px 3px;
+                    padding: 3px 7px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    outline: none;
+                    margin: auto 3px;
+                }
+
+                .download-metadata-tooltip .button-wrapper button:hover {
+                    background-image: linear-gradient(#eee,#ddd);
+                    border-color: #ccc;
+                }
+
+                .download-metadata-tooltip .button-wrapper button:focus {
+                    background-image: linear-gradient(#eee,#ddd);
+                    border-color: #51a7e8;
+                    box-shadow: 0 0 5px rgba(81,167,232,0.5);
+                }
+
+        .share-tooltip {
+            font-size: 8pt;
+            word-wrap: break-word;
+        }
+
+            .share-tooltip .copy-wrapper {
+                display: flex;
+                width: 175px;
+                margin-top: 5px;
+                margin-bottom: 10px;
+            }
+
+                .share-tooltip .copy-wrapper textarea {
+                    border-radius: 3px 0px 0px 3px;
+                    border: 1px solid #d5d5d5;
+                    border-right: none;
+                    align-items: stretch;
+                    padding: 2px 5px;
+                    font-size: 7pt;
+                    outline: none;
+                    box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
+                    resize: none;
+                    margin-right: 0px;
+                    background-color: white;
+                }
+
+                    .share-tooltip .copy-wrapper textarea:focus {
+                        border: 1px solid #51a7e8;
+                        box-shadow: inset 0 1px 2px rgba(0,0,0,0.075), 0 0 5px rgba(81,167,232,0.5);
+                    }
+
+                .share-tooltip .copy-wrapper button {
+                    align-items: stretch;
+                    background-color: #EFEFEF;
+                    background-image: linear-gradient(#fcfcfc,#eee);
+                    border: 1px solid #d5d5d5;
+                    border-radius: 0px 3px 3px 0px;
+                    padding: 3px 7px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    outline: none;
+                    margin-left: 0px;
+                }
+
+                    .share-tooltip .copy-wrapper button:hover {
+                        background-image: linear-gradient(#eee,#ddd);
+                        border-color: #ccc;
+                    }
+
+                    .share-tooltip .copy-wrapper button:focus {
+                        background-image: linear-gradient(#eee,#ddd);
+                        border-color: #51a7e8;
+                        box-shadow: 0 0 5px rgba(81,167,232,0.5);
+                    }
+
+/* Tool Table */
+
+.d2t-tool-table {
+    width: 100%;
+    text-align: center;
+    margin: 10px auto 10px auto;
+}
+    
+    .d2t-tool-table td {
+        border: none;
+    }
+
+    .d2t-tool-table th {
+        text-align: center;
+        background-color: #B5EBA9;
+        height: 30px;
+        font-size: 11pt;
+    }
+
+        .gse-landing-wrapper .d2t-tool-table th {
+            background-color: #EFEFEF;
+            height: 25px;
+            font-size: 9pt;
+        }
+
+        .gds-landing-wrapper .d2t-tool-table th {
+            background-color: #EFEFEF;
+            height: 25px;
+            font-size: 9pt;
+            font-weight: 800;
+        }
+
+    .d2t-tool-table tr:not(:first-child):not(:last-child) {border-bottom: 1px solid #f7f7f7 !important;}
+    .d2t-tool-table tr:nth-child(even) {background-color: white}
+    .d2t-tool-table tr:nth-child(odd) {background-color: #FCFCFC}
+
+    .tool-header {
+        width: 155px;
+    }
+
+        .tool-cell a {
+            display: table;
+        }  
+
+            .tool-cell .tool-icon {
+                height: 35px;
+                display: table-cell;
+                vertical-align: middle;
+                padding-left: 0px;
+                margin-left: 0px;
+                border: 1px solid #d5d5d5;
+                padding: 1px;
+                border-radius: 3px;
+                margin: 5px 7px;
+            }
+
+            .tool-cell .tool-name {
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+    .description-header {
+    }
+
+        .description-cell {
+            text-align: left;
+        }
+
+    .canned-analyses-header {
+        width: 135px;
+    }
+
+        .canned-analyses-cell {
+            font-size: 15pt;
+            color: black;
+        }
+
+            .canned-analyses-cell .fa {
+                cursor: pointer;
+            }
+
+/* Landing Tool Annotation */
+
+.landing-tool-annotation {
+    padding-left: 5px;
+    margin-bottom: 10px;
+    font-size: 10pt;
+}
+
+    .gse-landing-wrapper .landing-tool-annotation {
+        font-size: 8pt;
+    }
+
+    .landing-tool-annotation .go-back {
+        font-size: 11pt;
+        padding-top: 5px;
+        cursor: pointer;
+    }
+
+        .gds-landing-wrapper .landing-tool-annotation .go-back,
+        .gse-landing-wrapper .landing-tool-annotation .go-back {
+            font-size: 8pt;
+            padding-top: 5px;
+            cursor: pointer;
+        }
+
+    .landing-tool-annotation .tool-info {
+        display: table;
+    }
+
+        .landing-tool-annotation .tool-info .tool-icon {
+            height: 50px;
+            border: 1px solid #d5d5d5;
+            padding: 1px;
+            border-radius: 3px;
+            margin: 7px 9px 7px 0px;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+            .gds-landing-wrapper .landing-tool-annotation .tool-info .tool-icon,
+            .gse-landing-wrapper .landing-tool-annotation .tool-info .tool-icon {
+                height: 40px;
+                border: 1px solid #d5d5d5;
+                padding: 1px;
+                border-radius: 3px;
+                margin: 7px 9px 7px 0px;
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+        .landing-tool-annotation .tool-info .tool-text {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+            .landing-tool-annotation .tool-info .tool-text .tool-name {
+                font-size: 11pt;
+                margin: auto;
+            }
+
+                .gds-landing-wrapper .landing-tool-annotation .tool-info .tool-text .tool-name,
+                .gse-landing-wrapper .landing-tool-annotation .tool-info .tool-text .tool-name {
+                    font-size: 9pt;
+                    margin: auto;
+                }
+
+            .landing-tool-annotation .tool-info .tool-text .tool-description {
+                font-size: 11pt;
+                margin: auto;
+                padding-top: 3px;
+            }
+
+                .gds-landing-wrapper .landing-tool-annotation .tool-info .tool-text .tool-description,
+                .gse-landing-wrapper .landing-tool-annotation .tool-info .tool-text .tool-description {
+                    font-size: 9pt;
+                    margin: auto;
+                    padding-top: 3px;
+                }
+
+
+/* # Page-specific */
+
+.gse-landing-wrapper {
+    width: 600px;
+    font-size: 8pt;
+}
+
+    .gse-landing-wrapper .gse-header {
+        background-color: #ececec;
+        font-weight: 800;
+        margin: 5px 0px 7px 0px;
+        padding: 2px 1px;
+        font-size: 9pt;
+    }
+
+.gds-header {
+    border-bottom: 1px solid #C0C8Cf;
+    background: #E9E9E9 url(/geo/img/GDSbrowser_top_bar.gif) repeat-x scroll 0pt bottom;
+    font-weight: 800;
+    font-size: 9pt;
+    text-align: center;
+    padding: 2px 0px;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    color: #555;
+}
+
+    .gds-landing-wrapper {
+        border: 1px solid #C0C8Cf;
+        border-top: none;
+        padding: 5px 300px 5px 10px;
+        font-size: 9pt;
+    }
+

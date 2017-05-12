@@ -1,0 +1,42 @@
+{
+	"name": "LDP Canned Analyses",
+	"version": "1.0",
+	"description": "Ma'ayan Lab",
+	
+	"icons":{
+		"720": "icons/ldp_logo.png"
+	},
+	
+	"browser_action": {
+		"default_icon": "icons/ldp_logo.png"
+	},
+		
+	"content_scripts": [
+		{
+			"matches": [
+				"http://lincsportal.ccs.miami.edu/*"
+			],
+
+			"css": [
+				"css/datasets2tools.css"
+			],
+
+			"js": [
+				"jquery.js",
+				"jquery-ui.js",
+				"datasets2tools.js"
+			]
+		}
+	],
+
+	"web_accessible_resources": [
+		"icons/ldp_logo.png"
+	],
+
+	"permissions": [
+		"https://amp.pharm.mssm.edu/datasets2tools/*"
+	],
+
+
+	"manifest_version": 2
+}
